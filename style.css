@@ -339,7 +339,7 @@ p { margin: 0; }
 
 @media (max-width: 760px) {
   .nav-wrap { border-radius: 20px; padding: 10px 12px; justify-content: space-between; }
-  .brand-logo-header { height: 36px; }
+  .brand-logo-header { width: 36px; height: 36px; }
   .menu-toggle { display: inline-block; }
   .nav-wrap > .btn-small { display: none; }
   .nav-links {
