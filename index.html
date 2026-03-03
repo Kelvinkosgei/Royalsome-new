@@ -143,6 +143,41 @@
       </div>
     </section>
 
+    <section class="claims section-pad">
+      <div class="container">
+        <p class="eyebrow eyebrow-lite center" data-reveal>Claims Transparency</p>
+        <h2 class="gradient-text" data-reveal>Know what happens from report to payout</h2>
+        <div class="claims-metrics">
+          <article data-reveal>
+            <i class="fa-solid fa-bolt claims-metric-icon"></i>
+            <strong>2 hrs</strong>
+            <span>Average first response time</span>
+          </article>
+          <article data-reveal>
+            <i class="fa-solid fa-file-circle-check claims-metric-icon"></i>
+            <strong>24 hrs</strong>
+            <span>Document review window</span>
+          </article>
+          <article data-reveal>
+            <i class="fa-solid fa-sack-dollar claims-metric-icon"></i>
+            <strong>3-10 days</strong>
+            <span>Typical settlement timeline</span>
+          </article>
+          <article data-reveal>
+            <i class="fa-solid fa-headset claims-metric-icon"></i>
+            <strong>97%</strong>
+            <span>Clients satisfied with support</span>
+          </article>
+        </div>
+        <div class="claims-timeline">
+          <article data-reveal><span>1</span><h3><i class="fa-solid fa-phone-volume claims-step-icon"></i>Report The Claim</h3><p>Call, WhatsApp, or email us with initial details and any urgent concerns.</p></article>
+          <article data-reveal><span>2</span><h3><i class="fa-solid fa-file-lines claims-step-icon"></i>Document Check</h3><p>We confirm required documents and help you complete any missing paperwork.</p></article>
+          <article data-reveal><span>3</span><h3><i class="fa-solid fa-clipboard-check claims-step-icon"></i>Insurer Follow-up</h3><p>Our team tracks status updates with the insurer until an official decision is issued.</p></article>
+          <article data-reveal><span>4</span><h3><i class="fa-solid fa-circle-check claims-step-icon"></i>Payout & Closure</h3><p>We verify settlement terms with you before final closure and record your feedback.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="stats section-pad">
       <div class="container">
         <p class="eyebrow eyebrow-lite center" data-reveal>Client Results</p>
@@ -209,6 +244,71 @@
             </svg>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="quote-lab section-pad dark">
+      <div class="container split reverse">
+        <div class="reasons-copy" data-reveal>
+          <p class="eyebrow eyebrow-lite">Quick Quote Journey</p>
+          <h2 class="gradient-text">Multi-step intake that prepares your final quote request</h2>
+          <p class="copy">Answer a few focused questions, then we transfer the details into your full request form to save time.</p>
+          <ul class="list-check">
+            <li><i class="fa-solid fa-circle-check"></i> Guided 3-step process</li>
+            <li><i class="fa-solid fa-circle-check"></i> WhatsApp handoff option included</li>
+            <li><i class="fa-solid fa-circle-check"></i> Auto-fill support for final contact form</li>
+          </ul>
+        </div>
+        <form id="quickQuoteForm" class="quick-quote-form" data-reveal>
+          <div class="quick-steps" aria-label="Quote form steps">
+            <span class="active" data-step-pill="1">1</span>
+            <span data-step-pill="2">2</span>
+            <span data-step-pill="3">3</span>
+          </div>
+
+          <section class="quick-step is-active" data-step="1">
+            <label for="qqName">Full Name</label>
+            <input id="qqName" name="qq_name" type="text" placeholder="Your full name" required />
+            <label for="qqEmail">Email</label>
+            <input id="qqEmail" name="qq_email" type="email" placeholder="you@example.com" required />
+            <label for="qqPhone">Phone</label>
+            <input id="qqPhone" name="qq_phone" type="tel" placeholder="+254..." required />
+          </section>
+
+          <section class="quick-step" data-step="2">
+            <label for="qqType">Insurance Type</label>
+            <select id="qqType" name="qq_type" required>
+              <option value="">Select type</option>
+              <option>Motor Insurance</option>
+              <option>Home Insurance</option>
+              <option>Health Insurance</option>
+              <option>Life Insurance</option>
+              <option>Business Insurance</option>
+            </select>
+            <label for="qqBudget">Budget Range (KES per month)</label>
+            <select id="qqBudget" name="qq_budget" required>
+              <option value="">Select range</option>
+              <option>Below 5,000</option>
+              <option>5,000 - 15,000</option>
+              <option>15,000 - 40,000</option>
+              <option>Above 40,000</option>
+            </select>
+            <label for="qqStart">Preferred Start Date</label>
+            <input id="qqStart" name="qq_start" type="date" required />
+          </section>
+
+          <section class="quick-step" data-step="3">
+            <p class="quick-summary-title">Review Snapshot</p>
+            <div id="quickQuoteSummary" class="quick-summary"></div>
+            <a id="quickQuoteWhatsApp" class="btn btn-ghost" href="https://wa.me/254722395474" target="_blank" rel="noopener">Send Snapshot on WhatsApp</a>
+          </section>
+
+          <div class="quick-actions">
+            <button type="button" class="btn btn-ghost" id="quickPrev" disabled>Back</button>
+            <button type="button" class="btn" id="quickNext">Next Step</button>
+            <button type="submit" class="btn" id="quickSubmit" hidden>Continue to Final Form</button>
+          </div>
+        </form>
       </div>
     </section>
 
