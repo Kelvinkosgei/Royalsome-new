@@ -246,6 +246,31 @@ p { margin: 0; }
   margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; font-size: 12px;
   color: rgba(226,248,255,.9); background: rgba(102,184,255,.2); padding: 8px 11px; border-radius: 999px;
 }
+.ceo-message-card {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  align-items: center;
+  background: rgba(231,238,255,.08);
+  border: 1px solid rgba(137,203,255,.28);
+  border-radius: 18px;
+  padding: 24px;
+  color: #f2f7ff;
+}
+.ceo-message-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid rgba(255,255,255,.3);
+}
+.ceo-message-body h2 { font-size: clamp(1.35rem, 2.7vw, 2rem); margin-bottom: 12px; }
+.ceo-message-body p { color: rgba(233,242,255,.9); margin-top: 10px; }
+.ceo-signoff { margin-top: 16px; display: grid; gap: 4px; }
+.ceo-signoff strong { font-family: "Sora", sans-serif; font-size: 1.06rem; color: #fff; }
+.ceo-signoff span { color: #6be5db; font-size: 14px; font-weight: 700; }
 
 .contact { padding-top: 60px; }
 .contact-box {
@@ -358,6 +383,8 @@ p { margin: 0; }
   .section-pad { padding: 72px 0; }
   .page-hero { padding-top: 176px; }
   .mini-card-grid, .partners-grid, .reason-grid, .service-grid, .stat-grid, .team-page-grid, .value-grid, .footer-grid { grid-template-columns: 1fr; }
+  .ceo-message-card { grid-template-columns: 1fr; padding: 20px; }
+  .ceo-message-photo { max-width: 220px; margin: 0 auto; }
   .contact-box { padding: 24px; }
   .whatsapp-float { padding: 12px; border-radius: 14px; }
   .whatsapp-float span { display: none; }

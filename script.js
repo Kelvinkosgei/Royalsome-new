@@ -110,7 +110,19 @@ const formStatus = document.getElementById("formStatus");
 const submitBtn = document.getElementById("contactSubmit");
 
 if (contactForm && formStatus && submitBtn) {
+  const nextInput = contactForm.querySelector('input[name="_next"]');
+  const thankYouUrl = new URL("thank-you.html", window.location.href).href;
+  if (nextInput) nextInput.value = thankYouUrl;
+
   contactForm.addEventListener("submit", async (event) => {
+    const ajaxAction = contactForm.dataset.ajaxAction;
+    const shouldUseAjax = Boolean(ajaxAction) && window.location.protocol !== "file:";
+
+    if (!shouldUseAjax) {
+      // Allow normal form POST when running from file:// or if ajax action is missing.
+      return;
+    }
+
     event.preventDefault();
     formStatus.textContent = "Sending your request...";
     formStatus.className = "form-status";
@@ -118,7 +130,7 @@ if (contactForm && formStatus && submitBtn) {
     submitBtn.disabled = true;
 
     try {
-      const response = await fetch(contactForm.action, {
+      const response = await fetch(ajaxAction, {
         method: "POST",
         body: new FormData(contactForm),
         headers: { Accept: "application/json" }
@@ -127,9 +139,14 @@ if (contactForm && formStatus && submitBtn) {
       formStatus.textContent = "Request sent successfully. Our team will contact you shortly.";
       formStatus.classList.add("success");
       contactForm.reset();
+      window.location.href = thankYouUrl;
+      return;
     } catch (error) {
-      formStatus.textContent = "Unable to submit right now. Please email hello@royalsomeinsurance.com.";
-      formStatus.classList.add("error");
+      // Fallback to a normal form submit to maximize deliverability.
+      formStatus.textContent = "Finalizing your request...";
+      formStatus.className = "form-status";
+      contactForm.submit();
+      return;
     } finally {
       submitBtn.classList.remove("is-loading");
       submitBtn.disabled = false;
